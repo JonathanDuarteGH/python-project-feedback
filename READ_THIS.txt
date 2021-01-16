@@ -3,7 +3,7 @@
 2. Install packages::
   - pipenv install flask
   - pipenv install psycopg2
-  - pipenv install psycopg2
+  - pipenv install psycopg2-binary
   - pipenv install flask-sqlalchemy
   - pipenv install gunicorn
 3. python app.py
@@ -33,8 +33,10 @@ exit()
 // Erase database in heroku (REMOTE DATABASE ONLY) // 
 heroku restart; heroku pg:reset DATABASE --confirm YOUR-APP-NAME; heroku run rake db:migrate
 
-// View tables within postgresql //
-select * from YOUR-TABLE-NAME
+// postgresql COMMANDS //
+select * from YOUR-TABLE-NAME;
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
 
 // Heroku COMMANDS //
 - Login via CLI: heroku login
