@@ -1,0 +1,46 @@
+// Steps to start project //
+1. pipenv shell (exit(): to exit venv)
+2. Install packages::
+  - pipenv install flask
+  - pipenv install psycopg2
+  - pipenv install psycopg2
+  - pipenv install flask-sqlalchemy
+  - pipenv install gunicorn
+3. python app.py
+
+#####################################################
+
+// Add requirements file //
+pip freeze > requirements.txt
+
+// Add Procfile //
+web: gunicorn app:app
+
+// Add runtime.txt //
+python-3.9.1
+
+// Add to git repo //
+git add . && git commit -m "First Commit"
+heroku git:remote -a YOUR-APP-NAME
+git push heroku master
+
+// Add table to remote database //
+heroku run python
+from app import db
+db.create_all()
+exit()
+
+// Erase database in heroku (REMOTE DATABASE ONLY) // 
+heroku restart; heroku pg:reset DATABASE --confirm YOUR-APP-NAME; heroku run rake db:migrate
+
+// View tables within postgresql //
+select * from YOUR-TABLE-NAME
+
+// Heroku COMMANDS //
+- Login via CLI: heroku login
+- Create app: heroku create YOUR-APP-NAME (#if the name is taken use a different one)
+- Create database: heroku addons:create heroku-postgresql:hobby-dev --app YOUR-APP-NAME
+- Get URI: heroku config --app YOUR-APP-NAME
+- Access Database: heroku pg:psql --app YOUR-APP-NAME
+- Access App: heroku open
+
