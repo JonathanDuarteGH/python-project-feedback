@@ -6,6 +6,7 @@ This is a python project used to send feedback to sales person from a reviewer.
 * CSS
 * [Python](https://www.python.org/)
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Mailtrap.io](https://mailtrap.io/)
 
 ## Webapp Hosted On
 * [Heroku](https://teslawebfeedback.herokuapp.com/)
