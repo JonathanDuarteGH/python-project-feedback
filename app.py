@@ -1,3 +1,4 @@
+from credentials import *
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from send_mail import send_mail
@@ -8,10 +9,10 @@ ENV = 'prod'
 
 if ENV == 'dev':
     app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Qwerty56@localhost/tesla'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'{serverLocal}://{usernameLocal}:{passwordLocal}@localhost/{databaseLocal}'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zmovmejpqcfgrt:02e06502fc7e36fc112f00a6d619588d4d1f92a74705f62f757982763e1e5cd2@ec2-52-71-107-99.compute-1.amazonaws.com:5432/dc2ug3q4j9k0p1'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'{usernameHost}://{passwordHost}:{databaseHost}'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
