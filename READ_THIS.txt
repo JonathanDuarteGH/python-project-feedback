@@ -46,3 +46,7 @@ CREATE SCHEMA public;
 - Access Database: heroku pg:psql --app YOUR-APP-NAME
 - Access App: heroku open
 
+####################################################
+
+// pipenv shell //
+- type "deactivate" to end pipenv shell 
